@@ -1,0 +1,22 @@
+<script>
+var a = ['a', 'b', 'c'];
+
+//Premier fonction
+ function Iterer(obj, callback) { 
+	 obj.forEach( function(element) { 
+		callback(element);
+	 });
+ }
+ 
+ //Deuxieme Fonction
+  function Iterer2(obj, callback) { 
+	 for(i=0;i<obj.length;i++)
+	 {
+		callback(obj[i]);
+	 }
+ }
+ 
+ Iterer(a, function(element) { console.log(element)});
+ Iterer2(a, function(element) { console.log(element)});
+</script>
+

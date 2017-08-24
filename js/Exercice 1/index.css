@@ -1,0 +1,18 @@
+html,body{height:100%  ;width:100%  ; margin:0px; padding:0px;}
+
+.container {height: 200%  ; width: 100%  ;}
+
+.page {height:50%  ; width:100%  ;}
+
+#page1{background-color:grey;}
+
+.video{
+	position: relative;
+}
+.playbutton{
+	position: absolute;
+	margin-left: -330px;
+	margin-top: 172px;
+	width: 157px;
+	display: ;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<title>Test développeur web </title>
+</head>
+<body>
+	<div class="container">
+	    <div id="page1" class="page">
+	        page1
+	    </div>
+	    <div id="page2" class="page">
+	        page2
+	        <div id="video">
+	        	<video id="video1" preload="auto"  width="500" height="500" ontimeupdate="update(this)">
+				  <source  src=" https://api.vmed.fr/uploads/form/DOCDisplay.mp4" type="video/mp4">>
+				</video>
+				<button src='play.png' class="playbutton" onclick='PlayVid();'>Play</button>
+	        </div>
+	    </div>
+	</div>
+</body>
+
+<script>
+		// prend le 1er element des tags VIDEO
+ var video = document.getElementsByTagName("video")[0];
+	function checkScroll() {	 
+		if (isScrolledIntoView(video))
+		{
+			video.play();
+		}              	
+		else
+		{
+			video.pause();
+			console.log("pause");
+		}              	
+	    
+	}
+
+	function isScrolledIntoView(el) {
+	    var elemTop = el.getBoundingClientRect().top;
+	    var elemBottom = el.getBoundingClientRect().bottom;
+		var isVisible =  (elemTop >= 0) && (elemBottom <= window.innerHeight);
+	    return isVisible;
+	}
+	window.addEventListener('scroll', checkScroll, false);
+	window.addEventListener('resize', checkScroll, false);
+
+	 function PlayVid(){
+		video.play();
+	};
+
+	function update(video){
+		var duration = video.duration;    // Durée totale
+    	var time     = video.currentTime; // Temps écoulé
+    	if(time !== duration){
+    		document.getElementsByClassName("playbutton")[0].style.display='none';
+    	}else{
+    		console.log("fini");
+    		document.getElementsByClassName("playbutton")[0].style.display='block';
+    		document.getElementsByClassName("playbutton")[0].style.marginTop='-275px';
+    		document.getElementsByClassName("playbutton")[0].style.marginLeft='161px';
+    	}
+	}
+</script>
+</html>
